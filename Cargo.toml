@@ -1,0 +1,8 @@
+[workspace]
+members = ["consensus"
+    ,"controller"
+    ,"executor"
+    ,"kms"
+    ,"network"
+    ,"storage"
+]

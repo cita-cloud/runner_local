@@ -1,0 +1,6 @@
+enable_tls = true
+port = 40000
+[[peers]]
+ip = "127.0.0.1"
+port = 40001
+

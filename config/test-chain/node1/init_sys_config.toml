@@ -1,0 +1,5 @@
+version = 0
+chain_id = "0x26b0b83e7281be3b117658b6f2636d0368cad3d74f22243428f5401a4b70897e"
+admin = "0x3fbe2a6df2f85ab64b648f81f46ea38d1e766ac2"
+block_interval = 6
+validators = [ "0xcc4a48a5116791caf22cbb7363bfcf106f08ec62", "0x3f545a86e6cb73749e2b1e2085271f569b21a32a",]

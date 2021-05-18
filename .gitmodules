@@ -1,0 +1,18 @@
+[submodule "network"]
+	path = network
+	url = https://github.com/cita-cloud/network_p2p.git
+[submodule "controller"]
+	path = controller
+	url = https://github.com/cita-cloud/controller.git
+[submodule "executor"]
+	path = executor
+	url = https://github.com/cita-cloud/executor_evm.git
+[submodule "consensus"]
+	path = consensus
+	url = https://github.com/jerry-yu/consensus_bft.git
+[submodule "kms"]
+	path = kms
+	url = https://github.com/cita-cloud/kms_eth.git
+[submodule "storage"]
+	path = storage
+	url = https://github.com/cita-cloud/storage_rocksdb.git
