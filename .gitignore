@@ -11,6 +11,7 @@
 # intermedia file directory
 target/
 */target/
+tmp/
 
 # Cargo lock in subs
 **/Cargo.lock

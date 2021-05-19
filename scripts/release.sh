@@ -25,6 +25,7 @@ fi
 
 # 0) setup
 mkdir -p                                   ${install_dir}/bin/
+mkdir -p                                   ${install_dir}/config/
 
 
 # 1) binary
@@ -45,7 +46,7 @@ for binary in \
 done
 
 # 2) config
-cp -rf config                   ${install_dir}
+cp -rf tmp/*                    ${install_dir}/config/
 
 # 3) scripts
 cp -rf scripts                  ${install_dir}
