@@ -4,12 +4,15 @@
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
+	branch = sync
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git
+	branch = sync
 [submodule "consensus"]
 	path = consensus
-	url = https://github.com/jerry-yu/consensus_bft.git
+	url = https://github.com/cita-cloud/consensus_bft.git
+	branch = sync
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_eth.git
