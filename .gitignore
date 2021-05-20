@@ -63,5 +63,3 @@ logs/
 
 # db file
 *.db
-
-controller-config.toml
