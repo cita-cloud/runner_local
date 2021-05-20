@@ -13,9 +13,11 @@
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_eth.git
+	branch = main
 [submodule "storage"]
 	path = storage
 	url = https://github.com/cita-cloud/storage_rocksdb.git
+	branch = main
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cita_cloud_config.git
