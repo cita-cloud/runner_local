@@ -33,6 +33,8 @@ start() {
 
     cd "$dir"
 
+    mkdir -p blocks proposals state-data tx_infos txs
+
     pwd
 
     network run -p "$port" -k network-key &
@@ -64,13 +66,13 @@ stop() {
 
 
 clean() {
-    if [ ! -f "$WS"/../pid_list ]; then
+    if [ -f "$WS"/../pid_list ]; then
         stop
     fi
 
     local dir=$2
 
-    rm -r "$dir"/data "$dir"/logs "$dir"/chain_data
+    rm -r "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/blocks "$dir"/proposals "$dir"/state-data "$dir"/tx_infos "$dir"/txs
 }
 
 

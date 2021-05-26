@@ -37,15 +37,14 @@ optional arguments:
 ### 例子
 
 ```
-$ ./config/cita_cloud_config.py --peers_count 3 --kms_password 123456 --is_bft --is_local
-args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=False, is_bft=True, is_local=True, is_stdout=False, kms_password='123456', log_level='info', peers_count=3, timestamp=None)
-peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]
-net_config_list: [{'enable_tls': False, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}, {'enable_tls': False, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}]}, {'enable_tls': False, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}]}]
-kms create output: key_id:1,address:0xd6eb91100f5ae6ff68f1495a5b7b71aa6f538f72
-kms create output: key_id:1,address:0xf7f742bf08c927b1f92f294dd57b6ca0275df0dd
-kms create output: key_id:1,address:0x33ec7e6bd2ef44e651ededd6bca5fddfcf09e866
-kms create output: key_id:1,address:0x45482fe90366fbcb266776e72c1c40ce73652cee
-Done!!!
+$ ./config/cita_cloud_config.py --peers_count 2 --kms_password 123456 --is_bft --is_local
+  args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=False, is_bft=True, is_local=True, is_stdout=False, kms_password='123456', log_level='info', peers_count=2, timestamp=None)
+  peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}]
+  net_config_list: [{'enable_tls': False, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}]}, {'enable_tls': False, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}]}]
+  kms create output: key_id:1,address:0x6eee3fdcf3209af4f4292d7d2d0f8838988982c1
+  kms create output: key_id:1,address:0x6ba08d0c5f04538fc7d392d5c0917ce32c630c0e
+  kms create output: key_id:1,address:0x5fa8fb233366b9ce1cdb28114852e6cc5871383b
+  Done!!!
 ```
 
 产生的文件会在 `tmp` 目录下。
@@ -56,7 +55,6 @@ tmp/
 ├── admin
 ├── test-chain-0
 ├── test-chain-1
-└── test-chain-2
 ```
 
 #### 编译工程
@@ -74,18 +72,17 @@ $ make release
 ```
 $ cd target/install
 
-$ ./script/env.sh start test-chain-0 50000 && ./script/env.sh start test-chain-1 60000 && ./script/env.sh start test-chain-2 70000
+$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 60000
 ```
 
 链停止
 
 ```
-$ ./script/env.sh stop
+$ ./scripts/env.sh stop
 ```
 
 链文件删除
 
 ```
-$ ./script/env.sh clean test-chain-0 && ./script/env.sh clean test-chain-1 && ./script/env.sh clean test-chain-2
+$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1
 ```
-
