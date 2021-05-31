@@ -15,7 +15,7 @@
 	branch = sync
 [submodule "kms"]
 	path = kms
-	url = https://github.com/cita-cloud/kms_eth.git
+	url = https://github.com/cita-cloud/kms_sm.git
 	branch = main
 [submodule "storage"]
 	path = storage
