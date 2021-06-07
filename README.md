@@ -2,6 +2,12 @@
 
 runner_local 是 `cita-cloud` 的集合工程，通过 `.gitmodules` 将 cita-cloud 的各个工程融合进来，以及改造 `cita_cloud_config` 实现宿主机的 local 执行。
 
+### 克隆子工程
+
+```
+git submodule update --init
+```
+
 ### 依赖
 
 依赖请参看所有子工程的依赖文档。

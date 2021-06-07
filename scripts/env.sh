@@ -33,7 +33,7 @@ start() {
 
     cd "$dir"
 
-    mkdir -p blocks proposals state-data tx_infos txs
+    mkdir -p blocks state-data tx_infos txs
 
     pwd
 
@@ -72,7 +72,7 @@ clean() {
 
     local dir=$2
 
-    rm -r "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/blocks "$dir"/proposals "$dir"/state-data "$dir"/tx_infos "$dir"/txs
+    rm -r "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/blocks "$dir"/state-data "$dir"/tx_infos "$dir"/txs
 }
 
 
