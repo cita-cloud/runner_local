@@ -1,6 +1,7 @@
 [submodule "network"]
 	path = network
 	url = https://github.com/cita-cloud/network_p2p.git
+	branch = sync
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
