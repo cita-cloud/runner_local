@@ -43,14 +43,16 @@ optional arguments:
 ### 例子
 
 ```
-$ ./config/cita_cloud_config.py --peers_count 2 --kms_password 123456 --is_bft --is_local
-  args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=False, is_bft=True, is_local=True, is_stdout=False, kms_password='123456', log_level='info', peers_count=2, timestamp=None)
-  peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}]
-  net_config_list: [{'enable_tls': False, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}]}, {'enable_tls': False, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}]}]
-  kms create output: key_id:1,address:0x6eee3fdcf3209af4f4292d7d2d0f8838988982c1
-  kms create output: key_id:1,address:0x6ba08d0c5f04538fc7d392d5c0917ce32c630c0e
-  kms create output: key_id:1,address:0x5fa8fb233366b9ce1cdb28114852e6cc5871383b
-  Done!!!
+$ ./config/cita_cloud_config.py --peers_count 4 --kms_password 123456 --is_bft --is_local
+args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=False, is_bft=True, is_local=True, is_stdout=False, kms_password='123456', log_level='info', peers_count=4, timestamp=None)
+peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]
+net_config_list: [{'enable_tls': False, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40003, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}]
+kms create output: key_id:1,address:0x4ab7a3c49a035849acd9c928c9b271765211fcf1
+kms create output: key_id:1,address:0x28a2ae12bc2dfbbd948ea60c3a523494f58e1022
+kms create output: key_id:1,address:0xe79f2bf2ba3fec29d49eeeedbf915700a48f6388
+kms create output: key_id:1,address:0xa77efc8a8f3d23deed98517b57b7339502e00ea7
+kms create output: key_id:1,address:0x2b5adcd2727b45ab6bac59716a0af8f090762f19
+Done!!!
 ```
 
 产生的文件会在 `tmp` 目录下。
@@ -61,6 +63,10 @@ tmp/
 ├── admin
 ├── test-chain-0
 ├── test-chain-1
+├── test-chain-2
+└── test-chain-3
+
+5 directories, 0 files
 ```
 
 #### 编译工程
@@ -78,7 +84,7 @@ $ make release
 ```
 $ cd target/install
 
-$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 60000
+$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 51000 && ./scripts/env.sh start config/test-chain-2 52000 && ./scripts/env.sh start config/test-chain-3 53000
 ```
 
 链停止
@@ -90,5 +96,5 @@ $ ./scripts/env.sh stop
 链文件删除
 
 ```
-$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1
+$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1 && ./scripts/env.sh clean config/test-chain-2 && ./scripts/env.sh clean config/test-chain-3
 ```

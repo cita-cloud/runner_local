@@ -17,7 +17,7 @@
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_sm.git
-	branch = main
+	branch = sync
 [submodule "storage"]
 	path = storage
 	url = https://github.com/cita-cloud/storage_rocksdb.git
