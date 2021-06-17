@@ -21,7 +21,7 @@
 [submodule "storage"]
 	path = storage
 	url = https://github.com/cita-cloud/storage_rocksdb.git
-	branch = main
+	branch = sync
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cita_cloud_config.git
