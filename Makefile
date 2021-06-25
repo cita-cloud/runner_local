@@ -1,4 +1,4 @@
-CARGO=RUSTFLAGS='-A deprecated -A dead_code' cargo
+CARGO=RUSTFLAGS='-A deprecated' cargo
 
 .PHONY: debug release test test-release bench fmt cov clean clippy security_audit
 
