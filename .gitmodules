@@ -1,28 +1,28 @@
 [submodule "network"]
 	path = network
-	url = https://github.com/cita-cloud/network_p2p.git
-	branch = sync
+	url = git@github.com:cita-cloud/network_p2p.git
+	branch = v6.0.0-alpha
 [submodule "controller"]
 	path = controller
-	url = https://github.com/cita-cloud/controller.git
-	branch = sync
+	url = git@github.com:cita-cloud/controller.git
+	branch = v6.0.0-alpha
 [submodule "executor"]
 	path = executor
-	url = https://github.com/cita-cloud/executor_evm.git
-	branch = sync
+	url = git@github.com:cita-cloud/executor_evm.git
+	branch = v6.0.0-alpha
 [submodule "consensus"]
 	path = consensus
-	url = https://github.com/cita-cloud/consensus_bft.git
-	branch = sync
+	url = git@github.com:cita-cloud/consensus_bft.git
+	branch = v6.0.0-alpha
 [submodule "kms"]
 	path = kms
-	url = https://github.com/cita-cloud/kms_sm.git
-	branch = sync
+	url = git@github.com:cita-cloud/kms_sm.git
+	branch = v6.0.0-alpha
 [submodule "storage"]
 	path = storage
-	url = https://github.com/cita-cloud/storage_rocksdb.git
-	branch = sync
+	url = git@github.com:cita-cloud/storage_rocksdb.git
+	branch = v6.0.0-alpha
 [submodule "config"]
 	path = config
-	url = https://github.com/cita-cloud/cita_cloud_config.git
+	url = git@github.com:cita-cloud/cita_cloud_config.git
 	branch = sync
