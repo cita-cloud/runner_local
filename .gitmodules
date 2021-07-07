@@ -1,24 +1,27 @@
 [submodule "network"]
 	path = network
 	url = git@github.com:cita-cloud/network_p2p.git
+	branch = v6.0.0
 [submodule "controller"]
 	path = controller
 	url = git@github.com:cita-cloud/controller.git
+	branch = v6.0.0
 [submodule "executor"]
 	path = executor
 	url = git@github.com:cita-cloud/executor_evm.git
+	branch = v6.0.0
 [submodule "consensus"]
 	path = consensus
 	url = git@github.com:cita-cloud/consensus_bft.git
-	branch = v6.0.0-alpha
+	branch = v6.0.0
 [submodule "kms"]
 	path = kms
 	url = git@github.com:cita-cloud/kms_sm.git
-	branch = main
+	branch = v6.0.0
 [submodule "storage"]
 	path = storage
 	url = git@github.com:cita-cloud/storage_rocksdb.git
-	branch = main
+	branch = v6.0.0
 [submodule "config"]
 	path = config
 	url = git@github.com:cita-cloud/cita_cloud_config.git
