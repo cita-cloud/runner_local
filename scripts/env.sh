@@ -33,8 +33,6 @@ start() {
 
     cd "$dir"
 
-    mkdir -p blocks state-data tx_infos txs
-
     pwd
 
     network run -p "$port" -k network-key &
@@ -72,7 +70,7 @@ clean() {
 
     local dir=$2
 
-    rm -r "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/blocks "$dir"/state-data "$dir"/tx_infos "$dir"/txs
+    rm -rf "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/raft-data-dir
 }
 
 
