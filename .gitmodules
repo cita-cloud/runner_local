@@ -13,6 +13,7 @@
 [submodule "consensus"]
 	path = consensus
 	url = https://github.com/cita-cloud/consensus_raft.git
+	branch = performance-v6.1.0
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_sm.git
