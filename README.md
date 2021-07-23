@@ -1,6 +1,6 @@
 # runner_local
 
-runner_local 是 `cita-cloud` 的集合工程，通过 `.gitmodules` 将 cita-cloud 的各个工程融合进来，以及改造 `cita_cloud_config` 实现宿主机的 local 执行。
+runner_local 是 `cita-cloud` 的集合工程，通过 `.gitmodules` 将 cita-cloud 的各个工程融合进来，实现宿主机的 local 执行。
 
 ### 克隆子工程
 
@@ -15,13 +15,27 @@ git submodule update --init
 ### 使用方法
 
 ```
-$ ./config/cita_cloud_config.py -h
-usage: cita_cloud_config.py [-h] [--timestamp TIMESTAMP] [--block_delay_number BLOCK_DELAY_NUMBER] [--chain_name CHAIN_NAME]
-                            [--peers_count PEERS_COUNT] [--kms_password KMS_PASSWORD] [--enable_tls] [--is_stdout]
-                            [--log_level LOG_LEVEL] [--is_bft] [--is_local]
+usage: cita_cloud_config.py [-h] {init,increase,decrease,clean} ...
 
 optional arguments:
   -h, --help            show this help message and exit
+
+subcommands:
+  {init,increase,decrease,clean}
+                        additional help
+    init                Init a chain.
+    increase            Increase one node.
+    decrease            Decrease one node.
+    clean               Clean a chain.
+ypf:~/ypf-app/rust/runner_local[15:13:39]$ ./config/cita_cloud_config.py init -h
+usage: cita_cloud_config.py init [-h] [--work_dir WORK_DIR] [--timestamp TIMESTAMP] [--block_delay_number BLOCK_DELAY_NUMBER]
+                                 [--chain_name CHAIN_NAME] [--peers_count PEERS_COUNT] [--nodes NODES] [--super_admin SUPER_ADMIN]
+                                 [--kms_passwords KMS_PASSWORDS] [--enable_tls ENABLE_TLS] [--is_stdout IS_STDOUT] [--log_level LOG_LEVEL]
+                                 [--is_bft IS_BFT] [--is_local IS_LOCAL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --work_dir WORK_DIR   The output director of node config files.
   --timestamp TIMESTAMP
                         Timestamp of genesis block.
   --block_delay_number BLOCK_DELAY_NUMBER
@@ -30,28 +44,30 @@ optional arguments:
                         The name of chain.
   --peers_count PEERS_COUNT
                         Count of peers.
-  --kms_password KMS_PASSWORD
-                        Password of kms.
-  --enable_tls          Is enable tls
-  --is_stdout           Is output to stdout
+  --nodes NODES         Node network addr list.
+  --super_admin SUPER_ADMIN
+                        Address of super admin.
+  --kms_passwords KMS_PASSWORDS
+                        Password list of kms.
+  --enable_tls ENABLE_TLS
+                        Is enable tls
+  --is_stdout IS_STDOUT
+                        Is output to stdout
   --log_level LOG_LEVEL
                         log level: warn/info/debug/trace
-  --is_bft              Is bft
-  --is_local            Is running in local
+  --is_bft IS_BFT       Is bft
+  --is_local IS_LOCAL   Is running in local machine
 ```
 
 ### 例子
 
 ```
-$ ./config/cita_cloud_config.py --peers_count 4 --kms_password 123456 --is_bft --is_local
-args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=False, is_bft=True, is_local=True, is_stdout=False, kms_password='123456', log_level='info', peers_count=4, timestamp=None)
+$ ./config/cita_cloud_config.py init --peers_count 4 --kms_password 123456 --is_bft true --is_local true
+args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=True, is_bft=True, is_local=True, is_stdout=False, kms_passwords='123456', log_level='info', nodes=None, peers_count=4, subcmd='init', super_admin=None, timestamp=None, work_dir='./tmp')
 peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]
-net_config_list: [{'enable_tls': False, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': False, 'port': 40003, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}]
-kms create output: key_id:1,address:0x4ab7a3c49a035849acd9c928c9b271765211fcf1
-kms create output: key_id:1,address:0x28a2ae12bc2dfbbd948ea60c3a523494f58e1022
-kms create output: key_id:1,address:0xe79f2bf2ba3fec29d49eeeedbf915700a48f6388
-kms create output: key_id:1,address:0xa77efc8a8f3d23deed98517b57b7339502e00ea7
-kms create output: key_id:1,address:0x2b5adcd2727b45ab6bac59716a0af8f090762f19
+net_config_list: [{'enable_tls': True, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40003, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}]
+kms_passwords:  ['123456', '123456', '123456', '123456', '123456']
+kms create output: key_id:1,address:0xd7b298efc720872514207abed24c60c97917fe8c
 Done!!!
 ```
 
@@ -60,13 +76,14 @@ Done!!!
 ```
 $ tree tmp/ -L 1
 tmp/
-├── admin
+├── test-chain
 ├── test-chain-0
 ├── test-chain-1
 ├── test-chain-2
-└── test-chain-3
+├── test-chain-3
+└── test-chain.config
 
-5 directories, 0 files
+5 directories, 1 file
 ```
 
 #### 编译工程

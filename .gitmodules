@@ -25,4 +25,4 @@
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cita_cloud_config.git
-	branch = local-v6.1.0
+	branch = v6.1.0
