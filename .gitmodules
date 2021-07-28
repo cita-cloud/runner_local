@@ -5,7 +5,7 @@
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
-	branch = performance-v6.1.0
+	branch = v6.2.0
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git
@@ -13,7 +13,7 @@
 [submodule "consensus"]
 	path = consensus
 	url = https://github.com/cita-cloud/consensus_raft.git
-	branch = performance-v6.1.0
+	branch = v6.2.0
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_sm.git
