@@ -35,7 +35,7 @@ start() {
 
     pwd
 
-    network run -p "$port" -k network-key &
+    network run -p "$port" &
     pid_list[1]=$!
     consensus run -p $((port+1)) &
     pid_list[2]=$!
@@ -45,7 +45,7 @@ start() {
     pid_list[4]=$!
     controller run -p $((port+4)) &
     pid_list[5]=$!
-    kms run -p $((port+5)) -k key_file &
+    kms run -p $((port+5)) &
     pid_list[6]=$!
 
     cd -

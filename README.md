@@ -27,7 +27,7 @@ subcommands:
     increase            Increase one node.
     decrease            Decrease one node.
     clean               Clean a chain.
-ypf:~/ypf-app/rust/runner_local[15:13:39]$ ./config/cita_cloud_config.py init -h
+$ ./config/cita_cloud_config.py init -h
 usage: cita_cloud_config.py init [-h] [--work_dir WORK_DIR] [--timestamp TIMESTAMP] [--block_delay_number BLOCK_DELAY_NUMBER]
                                  [--chain_name CHAIN_NAME] [--peers_count PEERS_COUNT] [--nodes NODES] [--super_admin SUPER_ADMIN]
                                  [--kms_passwords KMS_PASSWORDS] [--enable_tls ENABLE_TLS] [--is_stdout IS_STDOUT] [--log_level LOG_LEVEL]
@@ -62,7 +62,7 @@ optional arguments:
 ### 例子
 
 ```
-$ ./config/cita_cloud_config.py init --peers_count 4 --kms_password 123456 --is_bft true --is_local true
+$ ./config/cita_cloud_config.py init --peers_count 4 --kms_password 123456 --is_local true
 args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=True, is_bft=True, is_local=True, is_stdout=False, kms_passwords='123456', log_level='info', nodes=None, peers_count=4, subcmd='init', super_admin=None, timestamp=None, work_dir='./tmp')
 peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]
 net_config_list: [{'enable_tls': True, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40003, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}]

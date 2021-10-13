@@ -1,0 +1,43 @@
+[controller]
+network_port = 53000
+controller_port = 53004
+consensus_port = 53001
+storage_port = 53003
+kms_port = 53005
+executor_port = 53002
+node_address = "0x2e3bef28673715063bdc3b82d9a33fa96f959811"
+
+[genesis_block]
+timestamp = 1633765324292
+prevhash = "0x0000000000000000000000000000000000000000000000000000000000000000"
+
+[system_config]
+version = 0
+chain_id = "0x26b0b83e7281be3b117658b6f2636d0368cad3d74f22243428f5401a4b70897e"
+admin = "0xe7b14f079c1db897568883f0323af5887c2feebb"
+block_interval = 3
+validators = [ "0x47bfe5185471c7ded9ead15e4c768202c6d561e6", "0xd15373d1a0365d8491f4bede2e2d3863cca8e45d", "0x3f05a198b46179aa54115ab246f07c9417ce9ec9", "0x2e3bef28673715063bdc3b82d9a33fa96f959811",]
+block_limit = 100
+
+[network_p2p]
+port = 40003
+grpc_port = 53000
+
+[[network_p2p.peers]]
+address = "/ip4/127.0.0.1/tcp/40000"
+
+[[network_p2p.peers]]
+address = "/ip4/127.0.0.1/tcp/40001"
+
+[[network_p2p.peers]]
+address = "/ip4/127.0.0.1/tcp/40002"
+
+[kms_sm]
+kms_port = 53005
+
+[storage_rocksdb]
+kms_port = 53005
+storage_port = 53003
+
+[executor_evm]
+executor_port = 53002
