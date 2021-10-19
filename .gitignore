@@ -62,4 +62,4 @@ logs/
 *_privkey
 
 # db file
-*.db
+#*.db
