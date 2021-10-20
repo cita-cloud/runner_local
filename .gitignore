@@ -14,7 +14,7 @@ target/
 #tmp/
 
 # Cargo lock in subs
-**/Cargo.lock
+#**/Cargo.lock
 
 
 # editor specific
