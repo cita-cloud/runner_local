@@ -37,7 +37,7 @@ start() {
 
     network run -p "$port" &
     pid_list[1]=$!
-    consensus run -p $((port+1)) &
+    consensus run &
     pid_list[2]=$!
     executor run -p $((port+2)) &
     pid_list[3]=$!

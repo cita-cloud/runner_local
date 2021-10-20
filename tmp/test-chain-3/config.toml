@@ -19,6 +19,12 @@ block_interval = 3
 validators = [ "0x47bfe5185471c7ded9ead15e4c768202c6d561e6", "0xd15373d1a0365d8491f4bede2e2d3863cca8e45d", "0x3f05a198b46179aa54115ab246f07c9417ce9ec9", "0x2e3bef28673715063bdc3b82d9a33fa96f959811",]
 block_limit = 100
 
+[consensus]
+node_addr = "0x2e3bef28673715063bdc3b82d9a33fa96f959811"
+grpc_listen_port = 53001
+network_port = 53000
+controller_port = 53004
+
 [network_p2p]
 port = 40003
 grpc_port = 53000
