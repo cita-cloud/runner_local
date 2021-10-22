@@ -1,7 +1,7 @@
 [submodule "network"]
 	path = network
-	url = https://github.com/cita-cloud/network_p2p.git
-	branch = wip-6.3.0
+	url = https://github.com/cita-cloud/network_tls.git
+	branch = adapt-v6.3.0
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git

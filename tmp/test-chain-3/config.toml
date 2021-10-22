@@ -47,3 +47,54 @@ storage_port = 53003
 
 [executor_evm]
 executor_port = 53002
+[network_tls]
+ca_cert = """
+-----BEGIN CERTIFICATE-----\r
+MIIBbTCCARKgAwIBAgIIOYrSF77doEYwCgYIKoZIzj0EAwIwITEfMB0GA1UEAwwW\r
+cmNnZW4gc2VsZiBzaWduZWQgY2VydDAgFw03NTAxMDEwMDAwMDBaGA80MDk2MDEw\r
+MTAwMDAwMFowITEfMB0GA1UEAwwWcmNnZW4gc2VsZiBzaWduZWQgY2VydDBZMBMG\r
+ByqGSM49AgEGCCqGSM49AwEHA0IABGTl2glsbjDhBfl/Tka59a/QAm3vfIZrGAOu\r
+bnMDIltxZiLZpgXIUHwE5BrcQjVP1gkq20rsR2Qf574XLazjWBujMjAwMB0GA1Ud\r
+DgQWBBRGoN2+F9KKOUp7pMyAZ46JxmlY/zAPBgNVHRMBAf8EBTADAQH/MAoGCCqG\r
+SM49BAMCA0kAMEYCIQDhkiDN+jIi4UhHroKQnMB+AV3Zl3wbQHPn7BkTs9PU6AIh\r
+AJ1kn7vf32IyDJdwotbbUiEfU+6GPQgG2+IQquD1ElkF\r
+-----END CERTIFICATE-----\r
+"""
+cert = """
+-----BEGIN CERTIFICATE-----\r
+MIIBUDCB+KADAgECAgkA6D8icxlaJKkwCgYIKoZIzj0EAwIwITEfMB0GA1UEAwwW\r
+cmNnZW4gc2VsZiBzaWduZWQgY2VydDAgFw03NTAxMDEwMDAwMDBaGA80MDk2MDEw\r
+MTAwMDAwMFowITEfMB0GA1UEAwwWcmNnZW4gc2VsZiBzaWduZWQgY2VydDBZMBMG\r
+ByqGSM49AgEGCCqGSM49AwEHA0IABMuW7oAuP1Gp83BpRH2qoJdEVChpjdTwXMCW\r
+s28ALp8bu6kyYZxT+5vCa67Ts6h6UEuMpItwGNnhS57JcnBN3s6jFzAVMBMGA1Ud\r
+EQQMMAqCCHBlZXIzLmZ5MAoGCCqGSM49BAMCA0cAMEQCIEDFh8XbN8ntn4PMPOO6\r
+WwMzkL9NtWyEqWKQBMOpCQ3tAiBz4x1v8xaOx2bmC+e56MaZmNq4l7VvANrrRvYX\r
+P3NAkw==\r
+-----END CERTIFICATE-----\r
+"""
+grpc_port = 53000
+listen_port = 40003
+priv_key = """
+-----BEGIN PRIVATE KEY-----\r
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgeXLy2HuaaRD4y2bp\r
+wSpyMosScwVC1u4wQ4ei7xG8kzShRANCAATLlu6ALj9RqfNwaUR9qqCXRFQoaY3U\r
+8FzAlrNvAC6fG7upMmGcU/ubwmuu07OoelBLjKSLcBjZ4UueyXJwTd7O\r
+-----END PRIVATE KEY-----\r
+"""
+reconnect_timeout = 5
+
+[[network_tls.peers]]
+domain = 'peer0.fy'
+host = 'localhost'
+port = 40000
+
+[[network_tls.peers]]
+domain = 'peer1.fy'
+host = 'localhost'
+port = 40001
+
+[[network_tls.peers]]
+domain = 'peer2.fy'
+host = 'localhost'
+port = 40002
+
