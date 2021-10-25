@@ -5,7 +5,7 @@
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
-	branch = wip-v6.3.0
+	branch = wip-6.3.0
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git

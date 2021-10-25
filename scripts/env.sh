@@ -35,7 +35,7 @@ start() {
 
     pwd
 
-    network run -p "$port" &
+    network run &
     pid_list[1]=$!
     consensus run &
     pid_list[2]=$!

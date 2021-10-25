@@ -2207,7 +2207,6 @@ version = "0.1.0"
 dependencies = [
  "bytes 1.1.0",
  "clap",
- "cloud-util",
  "futures",
  "prost 0.8.0",
  "rcgen",
