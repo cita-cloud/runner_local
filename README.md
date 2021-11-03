@@ -1,90 +1,165 @@
-# runner_local
+# cloud-config
 
-runner_local 是 `cita-cloud` 的集合工程，通过 `.gitmodules` 将 cita-cloud 的各个工程融合进来，实现宿主机的 local 执行。
-
-### 克隆子工程
-
-```
-git submodule update --init
-```
+创建链的配置文件。
 
 ### 依赖
 
-依赖请参看所有子工程的依赖文档。
+* rust: 1.54.0
 
-### 使用方法
-
-```
-usage: cita_cloud_config.py [-h] {init,increase,decrease,clean} ...
-
-optional arguments:
-  -h, --help            show this help message and exit
-
-subcommands:
-  {init,increase,decrease,clean}
-                        additional help
-    init                Init a chain.
-    increase            Increase one node.
-    decrease            Decrease one node.
-    clean               Clean a chain.
-$ ./config/cita_cloud_config.py init -h
-usage: cita_cloud_config.py init [-h] [--work_dir WORK_DIR] [--timestamp TIMESTAMP] [--block_delay_number BLOCK_DELAY_NUMBER]
-                                 [--chain_name CHAIN_NAME] [--peers_count PEERS_COUNT] [--nodes NODES] [--super_admin SUPER_ADMIN]
-                                 [--kms_passwords KMS_PASSWORDS] [--enable_tls ENABLE_TLS] [--is_stdout IS_STDOUT] [--log_level LOG_LEVEL]
-                                 [--is_bft IS_BFT] [--is_local IS_LOCAL]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --work_dir WORK_DIR   The output director of node config files.
-  --timestamp TIMESTAMP
-                        Timestamp of genesis block.
-  --block_delay_number BLOCK_DELAY_NUMBER
-                        The block delay number of chain.
-  --chain_name CHAIN_NAME
-                        The name of chain.
-  --peers_count PEERS_COUNT
-                        Count of peers.
-  --nodes NODES         Node network addr list.
-  --super_admin SUPER_ADMIN
-                        Address of super admin.
-  --kms_passwords KMS_PASSWORDS
-                        Password list of kms.
-  --enable_tls ENABLE_TLS
-                        Is enable tls
-  --is_stdout IS_STDOUT
-                        Is output to stdout
-  --log_level LOG_LEVEL
-                        log level: warn/info/debug/trace
-  --is_bft IS_BFT       Is bft
-  --is_local IS_LOCAL   Is running in local machine
-```
-
-### 例子
+### 安装
 
 ```
-$ ./config/cita_cloud_config.py init --peers_count 4 --kms_password 123456 --is_local true
-args: Namespace(block_delay_number=0, chain_name='test-chain', enable_tls=True, is_bft=True, is_local=True, is_stdout=False, kms_passwords='123456', log_level='info', nodes=None, peers_count=4, subcmd='init', super_admin=None, timestamp=None, work_dir='./tmp')
-peers: [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]
-net_config_list: [{'enable_tls': True, 'port': 40000, 'peers': [{'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40001, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40002}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40002, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40003}]}, {'enable_tls': True, 'port': 40003, 'peers': [{'ip': '127.0.0.1', 'port': 40000}, {'ip': '127.0.0.1', 'port': 40001}, {'ip': '127.0.0.1', 'port': 40002}]}]
-kms_passwords:  ['123456', '123456', '123456', '123456', '123456']
-kms create output: key_id:1,address:0xd7b298efc720872514207abed24c60c97917fe8c
-Done!!!
+cargo install --path .
 ```
 
-产生的文件会在 `tmp` 目录下。
+### 用法
 
 ```
-$ tree tmp/ -L 1
-tmp/
+$ cloud-config help
+cloud-config 6.3.0
+
+Yieazy
+
+USAGE:
+    cloud-config <SUBCOMMAND>
+
+FLAGS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    append    append config
+    create    create config
+    delete    delete config
+    help      Print this message or the help of the given subcommand(s)
+```
+
+### 初始化链
+
+```
+$ config-config create -h
+cloud-config-create 
+
+create config
+
+USAGE:
+    cloud-config create [OPTIONS] --consensus <CONSENSUS>
+
+FLAGS:
+    -h, --help    Print help information
+
+OPTIONS:
+        --chain-name <CHAIN_NAME>
+            set chain name [default: test-chain]
+
+        --config-dir <CONFIG_DIR>
+            set config file directory, default means current directory
+
+        --config-name <CONFIG_NAME>
+            set config file name [default: config.toml]
+
+        --consensus <CONSENSUS>
+            Set consensus micro-service
+
+        --controller <CONTROLLER>
+            Set controller micro-service [default: controller]
+
+        --executor <EXECUTOR>
+            Set executor micro-service [default: executor_evm]
+
+        --grpc-ports <GRPC_PORTS>
+            grpc port list, input "p1,p2,p3,p4", use default grpc port count from 50000 + 1000 * i
+            use default must set peer_count or p2p_ports [default: default]
+
+        --kms <KMS>
+            Set kms micro-service [default: kms_sm]
+
+        --kms-password <KMS_PASSWORD>
+            kms db password [default: 123456]
+
+        --network <NETWORK>
+            Set network micro-service [default: network_p2p]
+
+        --p2p-ports <P2P_PORTS>
+            p2p port list, input "ip1:port1,ip2:port2,ip3:port3,ip4:port4", use default port count
+            from 127.0.0.1:40000 + 1 * i, use default must set peer_count or grpc_ports [default:
+            default]
+
+        --package-limit <PACKAGE_LIMIT>
+            set one block contains tx limit, default 30000 [default: 30000]
+
+        --peers-count <PEERS_COUNT>
+            set initial node number, default "none" mean not use this must set grpc_ports or
+            p2p_ports, if set peers_count, grpc_ports and p2p_ports, base on grpc_ports > p2p_ports
+            > peers_count
+
+        --storage <STORAGE>
+            Set storage micro-service [default: storage_rocksdb]
+
+        --version <VERSION>
+            set version [default: 0]
+```
+
+#### 例子
+
+```
+$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_p2p --config-dir tmp
+```
+
+#### 生成的文件
+
+```
+$ cd tmp 
+$ ls
+test-chain                                           test-chain-57b98686b6636877a04710dc57127526feac76e7  test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
+test-chain-3e3acf2feb25ac611db9348244de132d01327dab  test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8
+
+$ tree .
+.
 ├── test-chain
-├── test-chain-0
-├── test-chain-1
-├── test-chain-2
-├── test-chain-3
-└── test-chain.config
+│   ├── config.toml
+│   └── kms.db
+├── test-chain-3e3acf2feb25ac611db9348244de132d01327dab
+│   ├── config.toml
+│   ├── consensus-log4rs.yaml
+│   ├── controller-log4rs.yaml
+│   ├── executor-log4rs.yaml
+│   ├── kms.db
+│   ├── kms-log4rs.yaml
+│   ├── network-log4rs.yaml
+│   └── storage-log4rs.yaml
+├── test-chain-57b98686b6636877a04710dc57127526feac76e7
+│   ├── config.toml
+│   ├── consensus-log4rs.yaml
+│   ├── controller-log4rs.yaml
+│   ├── executor-log4rs.yaml
+│   ├── kms.db
+│   ├── kms-log4rs.yaml
+│   ├── network-log4rs.yaml
+│   └── storage-log4rs.yaml
+├── test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8
+│   ├── config.toml
+│   ├── consensus-log4rs.yaml
+│   ├── controller-log4rs.yaml
+│   ├── executor-log4rs.yaml
+│   ├── kms.db
+│   ├── kms-log4rs.yaml
+│   ├── network-log4rs.yaml
+│   └── storage-log4rs.yaml
+└── test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
+    ├── config.toml
+    ├── consensus-log4rs.yaml
+    ├── controller-log4rs.yaml
+    ├── executor-log4rs.yaml
+    ├── kms.db
+    ├── kms-log4rs.yaml
+    ├── network-log4rs.yaml
+    └── storage-log4rs.yaml
 
-5 directories, 1 file
+5 directories, 34 files
 ```
+
+`test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e`：节点名称的构造为 `<chain-name>-<node-address>`
 
 #### 编译工程
 
@@ -101,7 +176,7 @@ $ make release
 ```
 $ cd target/install
 
-$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 51000 && ./scripts/env.sh start config/test-chain-2 52000 && ./scripts/env.sh start config/test-chain-3 53000
+$ ./scripts/env.sh start config/test-chain-3e3acf2feb25ac611db9348244de132d01327dab && ./scripts/env.sh start config/test-chain-57b98686b6636877a04710dc57127526feac76e7 && ./scripts/env.sh start config/test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8 && ./scripts/env.sh start config/test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
 ```
 
 链停止
@@ -113,5 +188,4 @@ $ ./scripts/env.sh stop
 链文件删除
 
 ```
-$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1 && ./scripts/env.sh clean config/test-chain-2 && ./scripts/env.sh clean config/test-chain-3
-```
+$ ./scripts/env.sh clean config/test-chain-3e3acf2feb25ac611db9348244de132d01327dab && ./scripts/env.sh clean config/test-chain-57b98686b6636877a04710dc57127526feac76e7 && ./scripts/env.sh clean config/test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8 && ./scripts/env.sh clean config/test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e

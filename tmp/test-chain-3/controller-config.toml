@@ -1,6 +1,0 @@
-network_port = 53000
-consensus_port = 53001
-storage_port = 53003
-kms_port = 53005
-executor_port = 53002
-block_delay_number = 0

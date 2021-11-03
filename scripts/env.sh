@@ -39,13 +39,13 @@ start() {
     pid_list[1]=$!
     consensus run &
     pid_list[2]=$!
-    executor run -p $((port+2)) &
+    executor run &
     pid_list[3]=$!
-    storage run -p $((port+3)) &
+    storage run &
     pid_list[4]=$!
-    controller run -p $((port+4)) &
+    controller run &
     pid_list[5]=$!
-    kms run -p $((port+5)) &
+    kms run &
     pid_list[6]=$!
 
     cd -

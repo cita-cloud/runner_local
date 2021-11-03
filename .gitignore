@@ -11,10 +11,10 @@
 # intermedia file directory
 target/
 */target/
-#tmp/
+tmp/
 
 # Cargo lock in subs
-#**/Cargo.lock
+**/Cargo.lock
 
 
 # editor specific
@@ -61,5 +61,8 @@ logs/
 # private key
 *_privkey
 
+# pem file
+*.pem
+
 # db file
-#*.db
+*.db

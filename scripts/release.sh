@@ -45,6 +45,7 @@ for binary in \
     fi
 done
 
+rm -rf ${install_dir}/config/*
 # 2) config
 cp -rf tmp/*                    ${install_dir}/config/
 
