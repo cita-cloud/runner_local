@@ -46,7 +46,9 @@ USAGE:
     cloud-config create [OPTIONS] --consensus <CONSENSUS>
 
 FLAGS:
-    -h, --help    Print help information
+FLAGS:
+    -h, --help       Print help information
+        --use_num    use serial number instead of node address
 
 OPTIONS:
         --chain-name <CHAIN_NAME>
@@ -103,63 +105,22 @@ OPTIONS:
 #### 例子
 
 ```
-$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_p2p --config-dir tmp
+$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_p2p --config-dir tmp --use_num
 ```
 
 #### 生成的文件
 
 ```
-$ cd tmp 
-$ ls
-test-chain                                           test-chain-57b98686b6636877a04710dc57127526feac76e7  test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
-test-chain-3e3acf2feb25ac611db9348244de132d01327dab  test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8
-
-$ tree .
-.
+$ tree tmp/ -L 1
+tmp
 ├── test-chain
-│   ├── config.toml
-│   └── kms.db
-├── test-chain-3e3acf2feb25ac611db9348244de132d01327dab
-│   ├── config.toml
-│   ├── consensus-log4rs.yaml
-│   ├── controller-log4rs.yaml
-│   ├── executor-log4rs.yaml
-│   ├── kms.db
-│   ├── kms-log4rs.yaml
-│   ├── network-log4rs.yaml
-│   └── storage-log4rs.yaml
-├── test-chain-57b98686b6636877a04710dc57127526feac76e7
-│   ├── config.toml
-│   ├── consensus-log4rs.yaml
-│   ├── controller-log4rs.yaml
-│   ├── executor-log4rs.yaml
-│   ├── kms.db
-│   ├── kms-log4rs.yaml
-│   ├── network-log4rs.yaml
-│   └── storage-log4rs.yaml
-├── test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8
-│   ├── config.toml
-│   ├── consensus-log4rs.yaml
-│   ├── controller-log4rs.yaml
-│   ├── executor-log4rs.yaml
-│   ├── kms.db
-│   ├── kms-log4rs.yaml
-│   ├── network-log4rs.yaml
-│   └── storage-log4rs.yaml
-└── test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
-    ├── config.toml
-    ├── consensus-log4rs.yaml
-    ├── controller-log4rs.yaml
-    ├── executor-log4rs.yaml
-    ├── kms.db
-    ├── kms-log4rs.yaml
-    ├── network-log4rs.yaml
-    └── storage-log4rs.yaml
+├── test-chain-0
+├── test-chain-1
+├── test-chain-2
+└── test-chain-3
 
-5 directories, 34 files
+5 directories, 0 files
 ```
-
-`test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e`：节点名称的构造为 `<chain-name>-<node-address>`
 
 #### 编译工程
 
@@ -176,7 +137,7 @@ $ make release
 ```
 $ cd target/install
 
-$ ./scripts/env.sh start config/test-chain-3e3acf2feb25ac611db9348244de132d01327dab && ./scripts/env.sh start config/test-chain-57b98686b6636877a04710dc57127526feac76e7 && ./scripts/env.sh start config/test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8 && ./scripts/env.sh start config/test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
+$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 51000 && ./scripts/env.sh start config/test-chain-2 52000 && ./scripts/env.sh start config/test-chain-3 53000
 ```
 
 链停止
@@ -188,4 +149,4 @@ $ ./scripts/env.sh stop
 链文件删除
 
 ```
-$ ./scripts/env.sh clean config/test-chain-3e3acf2feb25ac611db9348244de132d01327dab && ./scripts/env.sh clean config/test-chain-57b98686b6636877a04710dc57127526feac76e7 && ./scripts/env.sh clean config/test-chain-94cc5493111435bcfb0a03eb39921ad0f2e379f8 && ./scripts/env.sh clean config/test-chain-b4d2011d32ff5484b18dcb237e0dbf504b11c97e
+$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1 && ./scripts/env.sh clean config/test-chain-2 && ./scripts/env.sh clean config/test-chain-3
