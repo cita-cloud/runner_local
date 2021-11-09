@@ -4,12 +4,16 @@
 
 ### 依赖
 
-* rust: 1.54.0
+```
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# apt install -y --no-install-recommends make git protobuf-compiler libssl-dev pkg-config clang
+```
 
 ### 安装
 
 ```
-cargo install --path .
+cargo install --path config
 ```
 
 ### 用法
@@ -101,8 +105,6 @@ OPTIONS:
         --version <VERSION>
             set version [default: 0]
 ```
-
-#### 例子
 
 ```
 $ cloud-config create --peers-count 4 --consensus consensus_raft --network network_p2p --config-dir tmp --use_num
