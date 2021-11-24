@@ -107,7 +107,7 @@ OPTIONS:
 ```
 
 ```
-$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_p2p --config-dir tmp --use_num
+$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_tls --kms-password 123456 --config-dir tmp --use_num
 ```
 
 #### 生成的文件

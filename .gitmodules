@@ -5,15 +5,15 @@
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
-	branch = adapt-bft-6.3.0
+	branch = v6.3.0
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git
 	branch = v6.3.0
 [submodule "consensus"]
 	path = consensus
-	url = https://github.com/cita-cloud/consensus_bft.git
-	branch = wip-6.3.0-x
+	url = https://github.com/cita-cloud/consensus_raft.git
+	branch = v6.3.0
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_sm.git
