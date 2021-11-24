@@ -1,6 +1,6 @@
 [submodule "network"]
 	path = network
-	url = https://github.com/cita-cloud/network_p2p.git
+	url = https://github.com/cita-cloud/network_tls.git
 	branch = v6.3.0
 [submodule "controller"]
 	path = controller
@@ -25,4 +25,4 @@
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cloud-config.git
-	branch = v6.3.0
+	branch = short-name-v6.3.0
