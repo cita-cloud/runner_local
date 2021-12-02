@@ -22,7 +22,7 @@ cargo install --path config
 $ cloud-config help
 cloud-config 6.3.0
 
-Yieazy
+Rivtower Technologies.
 
 USAGE:
     cloud-config <SUBCOMMAND>
@@ -32,82 +32,61 @@ FLAGS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    append    append config
-    create    create config
-    delete    delete config
-    help      Print this message or the help of the given subcommand(s)
+    append-dev           append node in env dev
+    append-k8s           append node in env k8s
+    append-node          append a node into chain
+    append-validator     append a validator into chain
+    create-ca            create CA
+    create-csr           create csr
+    create-dev           create config in env dev
+    create-k8s           create config in env k8s
+    delete-chain         delete a chain
+    delete-dev           delete node in env dev
+    delete-k8s           delete node in env k8s
+    delete-node          delete a node from chain
+    help                 Print this message or the help of the given subcommand(s)
+    init-chain           init a chain
+    init-chain-config    init chain config
+    init-node            init node
+    new-account          new account
+    set-admin            set admin of chain
+    set-nodelist         set node list
+    set-validators       set validators of chain
+    sign-csr             sign csr
+    update-node          update node
 ```
 
-### 初始化链
+### 初始化链 dev mode
 
 ```
-$ config-config create -h
-cloud-config-create 
+$ cloud-config create-dev --help
+cloud-config-create-dev 
 
-create config
+create config in env dev
 
 USAGE:
-    cloud-config create [OPTIONS] --consensus <CONSENSUS>
+    cloud-config create-dev [FLAGS] [OPTIONS]
 
-FLAGS:
 FLAGS:
     -h, --help       Print help information
-        --use_num    use serial number instead of node address
+        --is-bft     is consensus bft
+        --is-tls     is network tls
+    -V, --version    Print version information
 
 OPTIONS:
-        --chain-name <CHAIN_NAME>
-            set chain name [default: test-chain]
-
-        --config-dir <CONFIG_DIR>
-            set config file directory, default means current directory
-
-        --config-name <CONFIG_NAME>
-            set config file name [default: config.toml]
-
-        --consensus <CONSENSUS>
-            Set consensus micro-service
-
-        --controller <CONTROLLER>
-            Set controller micro-service [default: controller]
-
-        --executor <EXECUTOR>
-            Set executor micro-service [default: executor_evm]
-
-        --grpc-ports <GRPC_PORTS>
-            grpc port list, input "p1,p2,p3,p4", use default grpc port count from 50000 + 1000 * i
-            use default must set peer_count or p2p_ports [default: default]
-
-        --kms <KMS>
-            Set kms micro-service [default: kms_sm]
-
-        --kms-password <KMS_PASSWORD>
-            kms db password [default: 123456]
-
-        --network <NETWORK>
-            Set network micro-service [default: network_p2p]
-
-        --p2p-ports <P2P_PORTS>
-            p2p port list, input "ip1:port1,ip2:port2,ip3:port3,ip4:port4", use default port count
-            from 127.0.0.1:40000 + 1 * i, use default must set peer_count or grpc_ports [default:
-            default]
-
-        --package-limit <PACKAGE_LIMIT>
-            set one block contains tx limit, default 30000 [default: 30000]
-
-        --peers-count <PEERS_COUNT>
-            set initial node number, default "none" mean not use this must set grpc_ports or
-            p2p_ports, if set peers_count, grpc_ports and p2p_ports, base on grpc_ports > p2p_ports
-            > peers_count
-
-        --storage <STORAGE>
-            Set storage micro-service [default: storage_rocksdb]
-
-        --version <VERSION>
-            set version [default: 0]
+        --chain-name <CHAIN_NAME>      set chain name [default: test-chain]
+        --config-dir <CONFIG_DIR>      set config file directory, default means current directory
+                                       [default: .]
+        --log-level <LOG_LEVEL>        log level [default: info]
+        --peers-count <PEERS_COUNT>    set initial node number [default: 4]
 ```
 
 ```
-$ cloud-config create --peers-count 4 --consensus consensus_raft --network network_tls --kms-password 123456 --config-dir tmp --use_num
+$ cloud-config create-dev --is-bft
+
+$ mkdir tmp
+
+$ mv test-chain* tmp
 ```
 
 #### 生成的文件
