@@ -5,12 +5,14 @@
 ### 依赖
 
 ```
+# install rust
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# install system package
 # apt install -y --no-install-recommends make git protobuf-compiler libssl-dev pkg-config clang
 ```
 
-### 安装
+### 安装 cloud-config
 
 ```
 cargo install --path config
@@ -82,11 +84,7 @@ OPTIONS:
 ```
 
 ```
-$ cloud-config create-dev --is-bft
-
-$ mkdir tmp
-
-$ mv test-chain* tmp
+$ cloud-config create-dev --is-bft --config-dir tmp
 ```
 
 #### 生成的文件
