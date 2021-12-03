@@ -1,6 +1,6 @@
 [submodule "network"]
 	path = network
-	url = https://github.com/cita-cloud/network_tls.git
+	url = https://github.com/cita-cloud/network_p2p.git
 	branch = v6.3.0
 [submodule "controller"]
 	path = controller
@@ -12,12 +12,20 @@
 	branch = v6.3.0
 [submodule "consensus"]
 	path = consensus
-	url = https://github.com/cita-cloud/consensus_raft.git
+	url = https://github.com/cita-cloud/consensus_bft.git
 	branch = v6.3.0
+; [submodule "consensus"]
+;     path = consensus
+;     url = https://github.com/cita-cloud/consensus_tls.git
+;     branch = v6.3.0
 [submodule "kms"]
 	path = kms
 	url = https://github.com/cita-cloud/kms_sm.git
 	branch = v6.3.0
+; [submodule "kms"]
+; 	path = kms
+; 	url = https://github.com/cita-cloud/kms_eth.git
+; 	branch = v6.3.0
 [submodule "storage"]
 	path = storage
 	url = https://github.com/cita-cloud/storage_rocksdb.git
@@ -25,4 +33,4 @@
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cloud-config.git
-	branch = short-name-v6.3.0
+	branch = master
