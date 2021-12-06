@@ -2,6 +2,10 @@
 	path = network
 	url = https://github.com/cita-cloud/network_p2p.git
 	branch = v6.3.0
+; [submodule "network"]
+;     path = network
+;     url = https://github.com/cita-cloud/network_tls.git
+;     branch = v6.3.0
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
@@ -16,7 +20,7 @@
 	branch = v6.3.0
 ; [submodule "consensus"]
 ;     path = consensus
-;     url = https://github.com/cita-cloud/consensus_tls.git
+;     url = https://github.com/cita-cloud/consensus_raft.git
 ;     branch = v6.3.0
 [submodule "kms"]
 	path = kms
