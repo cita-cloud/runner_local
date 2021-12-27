@@ -5,7 +5,7 @@ pipeline {
         stage('Check Basic') {
             steps {
                 sh 'git submodule init'
-                sh 'git submodule update'
+                sh 'git submodule update --force'
                 sh 'make clean'
                 sh 'make fmt'
                 sh 'make clippy'
