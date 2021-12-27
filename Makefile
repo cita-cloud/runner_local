@@ -42,7 +42,7 @@ clean:
 	rm -rf target/release/
 
 clippy:
-	$(CARGO) clippy --all
+	$(CARGO) clippy --all --all-targets
 
 # use cargo-audit to audit Cargo.lock for crates with security vulnerabilities
 # expecting to see "Success No vulnerable packages found"
