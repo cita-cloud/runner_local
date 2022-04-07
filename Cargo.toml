@@ -5,5 +5,5 @@ members = ["consensus"
     ,"kms"
     ,"network"
     ,"storage"
-#    ,"config"
+    ,"config"
 ]
