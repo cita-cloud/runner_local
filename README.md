@@ -22,7 +22,7 @@ cargo install --path config
 
 ```
 $ cloud-config help
-cloud-config 6.3.0
+cloud-config 6.5.0
 
 Rivtower Technologies.
 

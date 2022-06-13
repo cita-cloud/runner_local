@@ -22,13 +22,13 @@
 #     path = consensus
 #     url = https://github.com/cita-cloud/consensus_raft.git
 #     branch = master
-[submodule "kms"]
-	path = kms
-	url = https://github.com/cita-cloud/kms_sm.git
+[submodule "crypto"]
+	path = crypto
+	url = https://github.com/cita-cloud/crypto_sm.git
 	branch = main
-# [submodule "kms"]
-# 	path = kms
-# 	url = https://github.com/cita-cloud/kms_eth.git
+# [submodule "crypto"]
+# 	path = crypto
+# 	url = https://github.com/cita-cloud/crypto_eth.git
 # 	branch = main
 [submodule "storage"]
 	path = storage

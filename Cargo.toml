@@ -2,7 +2,7 @@
 members = ["consensus"
     ,"controller"
     ,"executor"
-    ,"kms"
+    ,"crypto"
     ,"network"
     ,"storage"
     ,"config"

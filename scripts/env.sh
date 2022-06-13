@@ -45,7 +45,7 @@ start() {
     pid_list[4]=$!
     controller run &
     pid_list[5]=$!
-    kms run &
+    crypto run &
     pid_list[6]=$!
 
     cd -

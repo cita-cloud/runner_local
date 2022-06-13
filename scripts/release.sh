@@ -33,7 +33,7 @@ for binary in \
         consensus \
         controller \
         executor \
-        kms \
+        crypto \
         network \
         storage \
         ; do

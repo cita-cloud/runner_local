@@ -7,7 +7,7 @@ debug:
 	scripts/release.sh x86 debug
 
 release:
-	$(CARGO) build --all  --release
+	$(CARGO) build --all  --release -j4
 	scripts/release.sh x86 release
 
 aarch64_debug:
