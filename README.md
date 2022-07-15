@@ -3,6 +3,7 @@
 创建链的配置文件。
 
 ### 依赖
+Rust 1.62.0+
 
 ```
 # install rust
@@ -61,30 +62,28 @@ SUBCOMMANDS:
 ### 初始化链 dev mode
 
 ```
-$ cloud-config create-dev --help
-cloud-config-create-dev 
-
+$ cloud-config-create-dev 
 create config in env dev
 
 USAGE:
-    cloud-config create-dev [FLAGS] [OPTIONS]
-
-FLAGS:
-    -h, --help       Print help information
-        --is-bft     is consensus bft
-        --is-tls     is network tls
-    -V, --version    Print version information
+    cloud-config create-dev [OPTIONS]
 
 OPTIONS:
         --chain-name <CHAIN_NAME>      set chain name [default: test-chain]
         --config-dir <CONFIG_DIR>      set config file directory, default means current directory
                                        [default: .]
+    -h, --help                         Print help information
+        --is-bft                       is consensus bft
+        --is-eth                       is crypto eth
+        --is-overlord                  is consensus overlord
+        --is-tls                       is network tls
+        --is-zenoh                     is network zenoh
         --log-level <LOG_LEVEL>        log level [default: info]
         --peers-count <PEERS_COUNT>    set initial node number [default: 4]
 ```
 
 ```
-$ cloud-config create-dev --is-bft --config-dir tmp
+$ cloud-config create-dev --is-bft --is-zenoh --config-dir tmp
 ```
 
 #### 生成的文件
