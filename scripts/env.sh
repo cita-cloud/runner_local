@@ -70,7 +70,7 @@ clean() {
 
     local dir=$2
 
-    rm -rf "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/raft-data-dir
+    rm -rf "$dir"/data "$dir"/logs "$dir"/chain_data "$dir"/raft-data-dir "$dir"/overlord_wal
 }
 
 
