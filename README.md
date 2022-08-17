@@ -115,7 +115,7 @@ $ make release
 ```
 $ cd target/install
 
-$ ./scripts/env.sh start config/test-chain-0 50000 && ./scripts/env.sh start config/test-chain-1 51000 && ./scripts/env.sh start config/test-chain-2 52000 && ./scripts/env.sh start config/test-chain-3 53000
+$ ./scripts/env.sh start
 ```
 
 链停止
@@ -127,4 +127,5 @@ $ ./scripts/env.sh stop
 链文件删除
 
 ```
-$ ./scripts/env.sh clean config/test-chain-0 && ./scripts/env.sh clean config/test-chain-1 && ./scripts/env.sh clean config/test-chain-2 && ./scripts/env.sh clean config/test-chain-3
+$ ./scripts/env.sh clean
+```
