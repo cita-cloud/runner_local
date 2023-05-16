@@ -10,7 +10,7 @@ $ apt install -y --no-install-recommends make git protobuf-compiler libssl-dev p
 ```
 
 ## 获取子模块
-在获取子模块之前可以发现，runner_local里的子模块都是空的。首先修改`.gitmodules`文件来指定要获取的微服务及其版本分支，默认的`Consensus`微服务是`Bft`，默认的`Crpto`微服务是`Sm`，所有微服务都默认使用主分支。然后用一下命令获取子模块，注意：需要翻墙。
+在获取子模块之前可以发现，runner_local里的子模块都是空的。首先修改`.gitmodules`文件来指定要获取的微服务及其版本分支，默认的`Consensus`微服务是`Overlord`，默认的`Crpto`微服务是`Sm`，所有微服务都默认使用主分支。然后用一下命令获取子模块，注意：需要翻墙。
 
 ```
 git submodule update --force --init --remote --recursive
@@ -24,7 +24,7 @@ git submodule update --force --init --remote --recursive
 cargo install --path config
 ```
 
-本地运行用`create-dev`子命令生成配置文件，默认的`Consensus`配置是`Bft`，默认的`Crpto`微服务是`Sm`
+本地运行用`create-dev`子命令生成配置文件，默认的`Consensus`配置是`Overlord`，默认的`Crpto`微服务是`Sm`
 
 ```
 $ cloud-config create-dev -h
@@ -33,14 +33,28 @@ create config in env dev
 Usage: cloud-config create-dev [OPTIONS]
 
 Options:
-      --chain-name <CHAIN_NAME>    set chain name [default: test-chain]
-      --config-dir <CONFIG_DIR>    set config file directory, default means current directory [default: .]
-      --peers-count <PEERS_COUNT>  set initial node number [default: 4]
-      --log-level <LOG_LEVEL>      log level [default: info]
-      --is-raft                    is consensus raft
-      --is-overlord                is consensus overlord
-      --is-eth                     is crypto eth
-  -h, --help                       Print help information
+      --chain-name <CHAIN_NAME>
+          set chain name [default: test-chain]
+      --config-dir <CONFIG_DIR>
+          set config file directory, default means current directory [default: .]
+      --peers-count <PEERS_COUNT>
+          set initial node number [default: 4]
+      --log-level <LOG_LEVEL>
+          log level [default: info]
+      --log-file-path <LOG_FILE_PATH>
+          log file path [default: ./logs]
+      --jaeger-agent-endpoint <JAEGER_AGENT_ENDPOINT>
+          jaeger agent endpoint
+      --is-raft
+          is consensus raft
+      --is-eth
+          is crypto eth
+      --is-danger
+          is chain in danger mode
+      --disable-metrics
+          disable metrics
+  -h, --help
+          Print help
 ```
 
 通过以下命令生成默认配置

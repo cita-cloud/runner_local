@@ -12,8 +12,8 @@
 	branch = master
 [submodule "consensus"]
 	path = consensus
-	url = https://github.com/cita-cloud/consensus_bft.git
-	branch = master
+	url = https://github.com/cita-cloud/consensus_overlord.git
+	branch = main
 # [submodule "consensus"]
 #     path = consensus
 #     url = https://github.com/cita-cloud/consensus_raft.git
