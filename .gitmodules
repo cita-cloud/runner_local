@@ -1,19 +1,19 @@
 [submodule "network"]
     path = network
     url = https://github.com/cita-cloud/network_zenoh.git
-    branch = main
+    branch = v6.7.0
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller.git
-	branch = master
+	branch = v6.7.0
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git
-	branch = master
+	branch = v6.7.0
 [submodule "consensus"]
 	path = consensus
 	url = https://github.com/cita-cloud/consensus_overlord.git
-	branch = main
+	branch = v6.7.0
 # [submodule "consensus"]
 #     path = consensus
 #     url = https://github.com/cita-cloud/consensus_raft.git
@@ -21,15 +21,15 @@
 [submodule "crypto"]
 	path = crypto
 	url = https://github.com/cita-cloud/crypto_sm.git
-	branch = main
+	branch = v6.7.0
 # [submodule "crypto"]
 # 	path = crypto
 # 	url = https://github.com/cita-cloud/crypto_eth.git
 # 	branch = main
 [submodule "storage"]
 	path = storage
-	url = https://github.com/cita-cloud/storage_rocksdb.git
-	branch = main
+	url = https://github.com/cita-cloud/storage_opendal.git
+	branch = v6.7.0
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cloud-config.git

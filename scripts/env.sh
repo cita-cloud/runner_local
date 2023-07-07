@@ -80,8 +80,6 @@ startall() {
         pid_list[4]=$!
         controller run &
         pid_list[5]=$!
-        crypto run &
-        pid_list[6]=$!
 
         echo -n "${pid_list[@]}" "" >> ./pid_list
 
