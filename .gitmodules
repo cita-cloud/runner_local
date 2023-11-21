@@ -1,40 +1,40 @@
 [submodule "network"]
     path = network
     url = https://github.com/cita-cloud/network_zenoh.git
-    branch = v6.7.2-beta.3
+    branch = v6.7.2
 [submodule "controller"]
 	path = controller
 	url = https://github.com/cita-cloud/controller_hsm.git
-	branch = v6.7.2-beta.3
+	branch = v6.7.2
 ; [submodule "controller"]
 ; 	path = controller
 ; 	url = https://github.com/cita-cloud/controller.git
-; 	branch = v6.7.2-beta.3
+; 	branch = v6.7.2
 [submodule "executor"]
 	path = executor
 	url = https://github.com/cita-cloud/executor_evm.git
-	branch = v6.7.2-beta.3
+	branch = v6.7.2
 [submodule "consensus"]
 	path = consensus
 	url = https://github.com/cita-cloud/consensus_overlord.git
-	branch = v6.7.2-beta.1
+	branch = v6.7.2
 ; [submodule "consensus"]
 ;     path = consensus
 ;     url = https://github.com/cita-cloud/consensus_raft.git
-;     branch = v6.7.2-beta.3
+;     branch = v6.7.2
 [submodule "crypto"]
 	path = crypto
 	url = https://github.com/cita-cloud/crypto_sm.git
-	branch = v6.7.2-beta.3
+	branch = v6.7.2
 ; [submodule "crypto"]
 ;  	path = crypto
 ;  	url = https://github.com/cita-cloud/crypto_eth.git
-;  	branch = v6.7.2-beta.3
+;  	branch = v6.7.2
 [submodule "storage"]
 	path = storage
 	url = https://github.com/cita-cloud/storage_opendal.git
-	branch = v6.7.2-beta.3
+	branch = v6.7.2
 [submodule "config"]
 	path = config
 	url = https://github.com/cita-cloud/cloud-config.git
-	branch = v6.7.2-beta.3
+	branch = v6.7.2
